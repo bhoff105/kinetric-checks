@@ -1,0 +1,103 @@
+{
+  "title": "Synthetic September 2026 month-end pack (example, not a client)",
+  "period": {
+    "start": "2026-09-01",
+    "end": "2026-09-30"
+  },
+  "tolerance": {
+    "abs": "1.00",
+    "pct": "0.0001"
+  },
+  "timing_window_days": 5,
+  "sources": {
+    "gl": {
+      "path": "gl_extract.csv",
+      "date_col": "date",
+      "amount_col": "amount",
+      "id_col": "journal_id"
+    },
+    "hris": {
+      "path": "hris_extract.csv"
+    }
+  },
+  "figures": [
+    {
+      "figure": "Revenue",
+      "source": "gl",
+      "filter": {
+        "account": [
+          "4000",
+          "4010"
+        ]
+      },
+      "sign": -1
+    },
+    {
+      "figure": "COGS",
+      "source": "gl",
+      "filter": {
+        "account": [
+          "5000"
+        ]
+      }
+    },
+    {
+      "figure": "Gross margin",
+      "derived": "Revenue - COGS"
+    },
+    {
+      "figure": "Payroll",
+      "source": "gl",
+      "filter": {
+        "account": [
+          "6100"
+        ]
+      }
+    },
+    {
+      "figure": "Rent",
+      "source": "gl",
+      "filter": {
+        "account": [
+          "6200"
+        ]
+      }
+    },
+    {
+      "figure": "Marketing",
+      "source": "gl",
+      "filter": {
+        "account": [
+          "6300"
+        ]
+      }
+    },
+    {
+      "figure": "Software",
+      "source": "gl",
+      "filter": {
+        "account": [
+          "6400"
+        ]
+      }
+    },
+    {
+      "figure": "Total operating expenses",
+      "derived": "Payroll + Rent + Marketing + Software"
+    },
+    {
+      "figure": "Operating income",
+      "derived": "Gross margin - Total operating expenses"
+    },
+    {
+      "figure": "Headcount",
+      "source": "hris",
+      "agg": "count",
+      "filter": {
+        "status": [
+          "active"
+        ]
+      }
+    }
+  ]
+}

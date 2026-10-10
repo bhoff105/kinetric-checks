@@ -1,0 +1,86 @@
+{
+  "title": "Synthetic September 2026 store: platform-reported revenue vs Shopify orders (example, not a client)",
+  "period": {
+    "start": "2026-09-01",
+    "end": "2026-09-30"
+  },
+  "tolerance": {
+    "abs": "1.00",
+    "pct": "0.0001"
+  },
+  "timing_window_days": 7,
+  "sources": {
+    "store": {
+      "path": "shopify_orders.csv",
+      "date_col": "order_date",
+      "amount_col": "total",
+      "id_col": "order_id"
+    }
+  },
+  "figures": [
+    {
+      "figure": "Meta: Prospecting",
+      "source": "store",
+      "filter": {
+        "utm_source": [
+          "meta"
+        ],
+        "utm_campaign": [
+          "prospecting"
+        ]
+      }
+    },
+    {
+      "figure": "Meta: Retargeting",
+      "source": "store",
+      "filter": {
+        "utm_source": [
+          "meta"
+        ],
+        "utm_campaign": [
+          "retargeting"
+        ]
+      }
+    },
+    {
+      "figure": "Google: Brand",
+      "source": "store",
+      "filter": {
+        "utm_source": [
+          "google"
+        ],
+        "utm_campaign": [
+          "brand"
+        ]
+      }
+    },
+    {
+      "figure": "Google: Shopping",
+      "source": "store",
+      "filter": {
+        "utm_source": [
+          "google"
+        ],
+        "utm_campaign": [
+          "shopping"
+        ]
+      }
+    },
+    {
+      "figure": "Google: Performance Max",
+      "source": "store",
+      "filter": {
+        "utm_source": [
+          "google"
+        ],
+        "utm_campaign": [
+          "pmax"
+        ]
+      }
+    },
+    {
+      "figure": "Total attributed",
+      "derived": "Meta: Prospecting + Meta: Retargeting + Google: Brand + Google: Shopping + Google: Performance Max"
+    }
+  ]
+}
