@@ -1,4 +1,9 @@
-# Kinetric Checks
+# Kinetric Checks (archived)
+
+> **This repo is archived and no longer updated.** Kinetric's free skills now live at
+> [bhoff105/kinetric-essentials](https://github.com/bhoff105/kinetric-essentials): reporting standards, variance
+> analysis, root cause analysis and an executive summary, each tested on known answers. The checks below are kept
+> as they were, read only.
 
 Free Claude Code skills that check the numbers before they go out. Each one ties a figure someone is about to
 send to the source it came from, lists every difference with its size and its most likely cause, and refuses to
